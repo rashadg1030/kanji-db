@@ -29,7 +29,7 @@ someFunc = do
     }
 
     kanjis <- runKanjiParser
-    result <- executeMany conn "insert into testTbl (literal, grade, strokes, jaon, jakun, def, nanori) values (?,?,?,?,?,?,?)" kanjis
+    result <- executeMany conn "insert into kanjiTbl (literal, grade, strokes, jaon, jakun, def, nanori) values (?,?,?,?,?,?,?)" kanjis
     print result
     --return result
 
@@ -56,7 +56,7 @@ instance ToRow Kanji
 runKanjiParser :: IO [Kanji] 
 runKanjiParser = do 
     kanjis <- runX (parseXML "kanjidic2.xml" >>> getKanjis)
-    return $ take 5 $ kanjis
+    return kanjis
 
 -- Parser --
 getKanjis = atTag "kanjidic2" >>>
