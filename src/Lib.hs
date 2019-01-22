@@ -50,7 +50,8 @@ instance ToJSON Kanji
 
 instance FromJSON Kanji
 
-instance ToRow Kanji 
+instance ToRow Kanji where 
+
 -- Run Parser --
 runKanjiParser :: IO [Kanji] 
 runKanjiParser = do 
