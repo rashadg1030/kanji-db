@@ -17,10 +17,9 @@ import GHC.Generics
 import Control.Monad
 import Control.Applicative
 
-secret = "Ilovechoco123"
-
 someFunc :: IO ()
 someFunc = do
+    secret <- readFile "secret.txt"
     conn <- connect defaultConnectInfo {
         connectHost = "kanjidb.postgres.database.azure.com",
         connectUser = "rashadg1030@kanjidb",
