@@ -43,6 +43,7 @@ data Kanji = Kanji {
     nanori :: Text -- readings of the kanji used in names
 } deriving (Generic, Show)
 
+
 -- hash list of text to bytestring and store
 -- write about this
 
